@@ -20,21 +20,23 @@
         <input type="number" name="result" id="result" step="0.01" disabled>
     </form>
     <?php
-        if (isset($_POST['button'])) {
-            if ((!empty($_POST['x']) || $_POST['x'] == '0') && !empty($_POST['y']) || $_POST['y'] == '0') && (!empty($_POST['dzialanie'])) {
+        if(isset($_POST['button'])){
+            if (!empty($_POST['x']) || $_POST['x'] == '0' && !empty($_POST['dzialanie'])){ 
                 require_once './1_function.php';
+                $x = $_POST['x'];
+                $y = $_POST['y'];
                 switch($_POST['dzialanie']) {
                     case '+':
-                        $result = add($_POST['x'], $_POST['y']);
+                        $result = add($x, $y);
                         break;
                     case '-':
-                        $result = sub($_POST['x'], $_POST['y']);
+                        $result = sub($x, $y);
                         break;
                     case '*':
-                        $result = multi($_POST['x'], $_POST['y']);
+                        $result = multi($x, $y);
                         break;
                     case '/':
-                        $result = div($_POST['x'], $_POST['y']);
+                        $result = div($x, $y);
                         break;
                     default:
                         $result = 'Podane działanie jest nieprawidzłowe';
@@ -42,13 +44,13 @@
                 }
                 ?>
                 <script>
-                    document.getElementbyId('result').value = <?php echo $result; ?>
+                    document.getElementById("result").value = <?php echo $result; ?>;
                 </script>
                 <?php
             } else {
                 echo '<br>Wypełnij dane prawidłowo';
             }
         }
-    ?>
+        ?>
 </body>
 </html>

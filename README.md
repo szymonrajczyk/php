@@ -1,7 +1,7 @@
 # Szymon Rajczyk
 <ul>
   <li>subject: Pracownia Programowania</li>
-  <li>languague: PHP</li
+  <li>languague: PHP</li>
 </ul>
 
 # Structure of the repository
